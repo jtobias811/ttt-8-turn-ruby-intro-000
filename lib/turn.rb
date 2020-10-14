@@ -16,6 +16,7 @@ def valid_move?(board, index)
   else
     return false
   end
+end
 
   def on_board?(index)
     if index.between?(0, 8) == true
@@ -23,6 +24,7 @@ def valid_move?(board, index)
     else
       return false
     end
+  end
 
   def position_taken?(board, index)
     if board[index] == " " || board[index] == "" || board[index] == nil
@@ -31,16 +33,15 @@ def valid_move?(board, index)
       return true
     end
   end
-end
 
 def move(board, index, player = "X")
   board[index] = player
 end
 
-def turn (board)
+def turn(board)
   puts "Please enter 1-9:"
-  num = gets.chomp
-  index = input_to_index(num)
+  user_input = gets.chomp
+  index = input_to_index(user_input)
   if valid_move?(board, index) == true
     move(board, index)
     display_board(board)
